@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>JustifyText</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net5.0-windows</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>7.3</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="JustifyTextEffect\JustifyText.png" />
+    <None Remove="JustifyTextEffect\Resources.CenterButtonIcon.png" />
+    <None Remove="JustifyTextEffect\Resources.LeftButtonIcon.png" />
+    <None Remove="JustifyTextEffect\Resources.RightButtonIcon.png" />
+    <EmbeddedResource Include="JustifyTextEffect\JustifyText.png" />
+    <EmbeddedResource Include="JustifyTextEffect\Resources.CenterButtonIcon.png" />
+    <EmbeddedResource Include="JustifyTextEffect\Resources.LeftButtonIcon.png" />
+    <EmbeddedResource Include="JustifyTextEffect\Resources.RightButtonIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="OptionBasedLibrary v0.7.9">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\Effects\OptionBasedLibrary v0.7.9.dll</HintPath>
+    </Reference>
+    <Reference Include="paintdotnet">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\paintdotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintDotNet.Base">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\PaintDotNet.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintDotNet.Core">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\PaintDotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintDotNet.Data">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\PaintDotNet.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintDotNet.Effects">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\PaintDotNet.Effects.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintDotNet.Framework">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\PaintDotNet.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintDotNet.Plugins.Compatibility">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\PaintDotNet.Plugins.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintDotNet.Resources">
+      <HintPath>..\..\..\..\..\Program Files\paint.net\PaintDotNet.Resources.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetPath)&quot; &quot;C:\Program Files\Paint.NET\Effects&quot;" />
+  </Target>
+</Project>
